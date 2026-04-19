@@ -12,15 +12,7 @@
         .text-brand { color: #0a254d; }
         .btn-brand { background-color: #0a254d; color: white; transition: 0.3s; }
         .btn-brand:hover { background-color: #1c4a8a; transform: translateY(-2px); }
-        
-        .whatsapp-float { 
-            position: fixed; bottom: 25px; right: 25px; 
-            background-color: #25d366; color: white; 
-            width: 65px; height: 65px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 32px; z-index: 9999; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
-        }
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
     </style>
 </head>
 <body>
@@ -31,53 +23,62 @@
 
     <header class="hero-gradient text-white pt-16 pb-24 px-6 text-center">
         <h1 class="text-5xl font-bold tracking-tighter mb-4">SWIFTGO COURIER</h1>
-        <p class="text-xs tracking-[0.4em] font-light opacity-80 uppercase">Fast • Secure • Worldwide Logistics</p>
+        <p class="text-xs tracking-[0.4em] font-light opacity-80 uppercase">Elite Logistics • Global Security • Precision</p>
     </header>
 
     <section class="max-w-2xl mx-auto -mt-16 px-6">
         <div class="bg-white rounded-3xl p-10 shadow-2xl text-center border border-gray-100">
-            <h2 class="text-2xl font-bold text-brand mb-4">Secure Tracking Portal</h2>
-            <p class="text-gray-400 text-xs mb-8 uppercase tracking-widest">Enter Shipment ID for real-time updates</p>
-            <input type="text" placeholder="Enter Tracking Number..." class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl mb-4 outline-none focus:border-blue-900 transition">
-            <button class="w-full btn-brand py-4 rounded-2xl font-bold text-lg shadow-lg">TRACK SHIPMENT</button>
+            <h2 class="text-2xl font-bold text-brand mb-4">Live Tracking Portal</h2>
+            <p class="text-gray-400 text-xs mb-8 uppercase tracking-widest">Enter Shipment ID to verify destination</p>
+            
+            <input type="text" id="trackInput" placeholder="ENTER TRACKING CODE..." class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl mb-4 outline-none focus:border-blue-900 transition text-center font-bold tracking-widest">
+            
+            <button onclick="processTracking()" class="w-full btn-brand py-4 rounded-2xl font-bold text-lg shadow-lg">VERIFY SHIPMENT</button>
+            
+            <div id="statusResult" class="mt-8 p-6 rounded-2xl hidden border-t-4 border-blue-900 bg-gray-50">
+                <div id="statusText" class="text-brand font-bold text-lg uppercase tracking-tight"></div>
+                <div id="locationText" class="text-gray-500 text-sm mt-2 italic"></div>
+            </div>
         </div>
     </section>
 
     <section class="max-w-5xl mx-auto px-6 py-20 text-center">
         <h3 class="text-xs font-bold text-blue-800 uppercase tracking-[0.3em] mb-4">Global Reliability</h3>
-        <h2 class="text-3xl md:text-4xl font-bold text-brand mb-8">Your Gateway to the World</h2>
-        <p class="text-gray-600 leading-relaxed mb-12 text-lg">
-            <strong>SwiftGo Courier</strong> is a premier global logistics provider dedicated to speed, security, and absolute transparency. From high-priority air freight to cost-effective sea shipping, we manage your cargo with the precision and care that modern business demands.
+        <h2 class="text-3xl font-bold text-brand mb-8">Secure Logistics for a Modern World</h2>
+        <p class="text-gray-600 leading-relaxed mb-12">
+            SwiftGo Courier provides high-security transport for priority shipments. We utilize advanced real-time tracking systems to ensure your destination is reached with total transparency and speed.
         </p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-50">
-                <i class="fa fa-plane-departure text-3xl text-blue-900 mb-6"></i>
-                <h4 class="font-bold text-brand mb-3 uppercase text-sm tracking-widest">Air Freight</h4>
-                <p class="text-xs text-gray-500 leading-loose">Time-sensitive cargo delivered via our elite network of global air carriers for maximum speed.</p>
-            </div>
-            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-50">
-                <i class="fa fa-ship text-3xl text-blue-900 mb-6"></i>
-                <h4 class="font-bold text-brand mb-3 uppercase text-sm tracking-widest">Sea Logistics</h4>
-                <p class="text-xs text-gray-500 leading-loose">Comprehensive ocean freight solutions for large-scale shipments with full customs management.</p>
-            </div>
-            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-50">
-                <i class="fa fa-shield-check text-3xl text-blue-900 mb-6"></i>
-                <h4 class="font-bold text-brand mb-3 uppercase text-sm tracking-widest">Secure Handling</h4>
-                <p class="text-xs text-gray-500 leading-loose">Advanced tracking and 24/7 monitoring to ensure your package arrives exactly as it left.</p>
-            </div>
-        </div>
     </section>
 
-    <footer class="bg-white py-20 text-center border-t border-gray-100">
-        <p class="text-[10px] uppercase tracking-[0.5em] text-gray-300 mb-6 font-bold">SwiftGo Global Logistics Network</p>
-        <div class="flex justify-center space-x-8 text-brand text-lg mb-10">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
-        </div>
-        <p class="text-[10px] text-gray-400 uppercase tracking-widest">&copy; 2026 SwiftGo Courier. All Rights Reserved.</p>
-    </footer>
+    <script>
+        function processTracking() {
+            const input = document.getElementById('trackInput').value.trim().toUpperCase();
+            const resultBox = document.getElementById('statusResult');
+            const statusText = document.getElementById('statusText');
+            const locationText = document.getElementById('locationText');
+            
+            resultBox.classList.remove('hidden');
+
+            // Define your Destination Codes here
+            const shipmentData = {
+                "ISFI-99": "Destination: Paris, France Hub",
+                "SG-LDN": "Destination: London, UK Terminal",
+                "SG-NYC": "Destination: New York, USA Center",
+                "SG-BER": "Destination: Berlin, Germany Depot"
+            };
+
+            if (shipmentData[input]) {
+                statusText.innerHTML = "<i class='fa fa-check-circle text-green-500 mr-2'></i> SHIPMENT VERIFIED";
+                locationText.innerHTML = shipmentData[input] + " <br><span class='text-xs font-bold'>Current Status: IN TRANSIT</span>";
+            } else if (input === "") {
+                statusText.innerHTML = "ERROR";
+                locationText.innerHTML = "Please enter a tracking code.";
+            } else {
+                statusText.innerHTML = "INVALID CODE";
+                locationText.innerHTML = "No shipment found for this ID. Contact support.";
+            }
+        }
+    </script>
 
 </body>
 </html>
