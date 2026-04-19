@@ -3,133 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swiftgo Courier Logistics | Global Shipping Brokerage</title>
+    <title>SwiftGo Courier | Elite Worldwide Logistics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-blue: #002d62;
-            --accent-yellow: #ffcc00;
-            --bg-gray: #f4f7f9;
-        }
-
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: var(--bg-gray); color: #333; }
-
-        /* Header & Navigation */
-        header { background-color: var(--primary-blue); color: white; padding: 60px 20px; text-align: center; border-bottom: 6px solid var(--accent-yellow); }
-        header h1 { margin: 0; font-size: 2.8em; letter-spacing: 2px; text-transform: uppercase; }
-        header p { margin-top: 10px; opacity: 0.9; font-size: 1.1em; }
-
-        /* Hero Tracking Section */
-        .hero { background: white; padding: 50px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 850px; margin: -40px auto 40px; border-radius: 12px; }
-        .search-box { max-width: 500px; margin: 0 auto; }
-        input[type="text"] { width: 100%; padding: 20px; font-size: 18px; border: 2px solid #ddd; border-radius: 35px; outline: none; transition: 0.3s; box-sizing: border-box; text-align: center; background: #fafafa; }
-        input[type="text"]:focus { border-color: var(--primary-blue); background: white; }
+        body { background-color: #f8fafc; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(180deg, #0a254d 0%, #163e7a 100%); }
+        .text-brand { color: #0a254d; }
+        .btn-brand { background-color: #0a254d; color: white; transition: 0.3s; }
+        .btn-brand:hover { background-color: #1c4a8a; transform: translateY(-2px); }
         
-        button { background-color: var(--primary-blue); color: white; border: none; padding: 20px; font-size: 18px; font-weight: bold; border-radius: 35px; cursor: pointer; margin-top: 20px; width: 100%; transition: 0.3s; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,45,98,0.2); }
-        button:hover { background-color: #00408b; transform: translateY(-2px); }
-
-        /* Services Section */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; }
-        .card { background: white; padding: 40px 25px; border-radius: 12px; text-align: center; border-top: 5px solid var(--accent-yellow); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .card h3 { color: var(--primary-blue); margin-bottom: 15px; }
-
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            z-index: 1000;
-            transition: 0.3s;
+        .whatsapp-float { 
+            position: fixed; bottom: 25px; right: 25px; 
+            background-color: #25d366; color: white; 
+            width: 65px; height: 65px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 32px; z-index: 9999; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
         }
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
-
-        footer { background: #1a1a1a; color: #aaa; padding: 50px 20px; text-align: center; font-size: 14px; }
     </style>
 </head>
 <body>
 
-<a href="https://wa.me/44 7478 710824" class="whatsapp-float" target="_blank">
-    <span>CHAT ON WHATSAPP</span>
-</a>
+    <a href="https://wa.me/YOUR_NUMBER" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<header>
-    <h1>SWIFTGO COURIER</h1>
-    <p>FAST • SECURE • WORLDWIDE LOGISTICS</p>
-</header>
+    <header class="hero-gradient text-white pt-16 pb-24 px-6 text-center">
+        <h1 class="text-5xl font-bold tracking-tighter mb-4">SWIFTGO COURIER</h1>
+        <p class="text-xs tracking-[0.4em] font-light opacity-80 uppercase">Fast • Secure • Worldwide Logistics</p>
+    </header>
 
-<div class="hero">
-    <div class="search-box">
-        <h2 style="color: var(--primary-blue); margin-top: 0;">Secure Tracking Portal</h2>
-        <p style="color: #666; margin-bottom: 30px;">Enter your shipment ID for real-time status updates.</p>
-        <input type="text" id="trackInput" placeholder="Enter Tracking Number">
-        <button onclick="runTracking()">TRACK SHIPMENT</button>
-    </div>
-</div>
+    <section class="max-w-2xl mx-auto -mt-16 px-6">
+        <div class="bg-white rounded-3xl p-10 shadow-2xl text-center border border-gray-100">
+            <h2 class="text-2xl font-bold text-brand mb-4">Secure Tracking Portal</h2>
+            <p class="text-gray-400 text-xs mb-8 uppercase tracking-widest">Enter Shipment ID for real-time updates</p>
+            <input type="text" placeholder="Enter Tracking Number..." class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl mb-4 outline-none focus:border-blue-900 transition">
+            <button class="w-full btn-brand py-4 rounded-2xl font-bold text-lg shadow-lg">TRACK SHIPMENT</button>
+        </div>
+    </section>
 
-<div class="services">
-    <div class="card">
-        <h3>Air Freight</h3>
-        <p>Global express shipping using our elite network of air carriers for time-sensitive cargo.</p>
-    </div>
-    <div class="card">
-        <h3>Sea Logistics</h3>
-        <p>Cost-effective solutions for large-scale brokerage and international ocean shipments.</p>
-    </div>
-    <div class="card">
-        <h3>Door Delivery</h3>
-        <p>Seamless last-mile delivery services directly to your customer's doorstep worldwide.</p>
-    </div>
-</div>
+    <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+        <h3 class="text-xs font-bold text-blue-800 uppercase tracking-[0.3em] mb-4">Global Reliability</h3>
+        <h2 class="text-3xl md:text-4xl font-bold text-brand mb-8">Your Gateway to the World</h2>
+        <p class="text-gray-600 leading-relaxed mb-12 text-lg">
+            <strong>SwiftGo Courier</strong> is a premier global logistics provider dedicated to speed, security, and absolute transparency. From high-priority air freight to cost-effective sea shipping, we manage your cargo with the precision and care that modern business demands.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-50">
+                <i class="fa fa-plane-departure text-3xl text-blue-900 mb-6"></i>
+                <h4 class="font-bold text-brand mb-3 uppercase text-sm tracking-widest">Air Freight</h4>
+                <p class="text-xs text-gray-500 leading-loose">Time-sensitive cargo delivered via our elite network of global air carriers for maximum speed.</p>
+            </div>
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-50">
+                <i class="fa fa-ship text-3xl text-blue-900 mb-6"></i>
+                <h4 class="font-bold text-brand mb-3 uppercase text-sm tracking-widest">Sea Logistics</h4>
+                <p class="text-xs text-gray-500 leading-loose">Comprehensive ocean freight solutions for large-scale shipments with full customs management.</p>
+            </div>
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-50">
+                <i class="fa fa-shield-check text-3xl text-blue-900 mb-6"></i>
+                <h4 class="font-bold text-brand mb-3 uppercase text-sm tracking-widest">Secure Handling</h4>
+                <p class="text-xs text-gray-500 leading-loose">Advanced tracking and 24/7 monitoring to ensure your package arrives exactly as it left.</p>
+            </div>
+        </div>
+    </section>
 
-<footer>
-    <p>&copy; 2026 Swiftgo Courier Logistics. All Rights Reserved.</p>
-    <p>Lagos Headquarters | London Branch | Helsinki Hub</p>
-</footer>
-
-<script>
-    async function runTracking() {
-        const val = document.getElementById('trackInput').value.trim().toUpperCase();
-        if(!val) return alert("Please enter a Tracking ID.");
-
-        const sheetUrl = 'https://docs.google.com/spreadsheets/d/1-P-sXNrBMv7d1L64YS54223w3Ine-JwN7RQDUv0rWIs/gviz/tq?tqx=out:csv';
-
-        try {
-            const res = await fetch(sheetUrl);
-            const data = await res.text();
-            
-            // Smarter CSV parser to handle Google's formatting
-            const rows = data.split('\n').map(r => 
-                r.split(',').map(c => c.replace(/"/g, '').trim())
-            );
-
-            let found = false;
-            for(let i = 1; i < rows.length; i++) {
-                if(rows[i][0] && rows[i][0].toUpperCase() === val) {
-                    alert("✅ SHIPMENT FOUND\n\n" +
-                          "ID: " + rows[i][0] + "\n" +
-                          "Route: " + rows[i][1] + "\n" +
-                          "Status: " + rows[i][2] + "\n" +
-                          "Last Location: " + rows[i][3] + "\n\n" +
-                          "Click the green button on the screen to chat with us for your Waybill PDF.");
-                    found = true;
-                    break;
-                }
-            }
-            if(!found) alert("TRACKING ID: " + val + " NOT FOUND\n\nStatus: Order processing. Please wait 1-2 hours for system sync or contact WhatsApp support.");
-        } catch(e) {
-            alert("Connection error. Please refresh the page and try again.");
-        }
-    }
-</script>
+    <footer class="bg-white py-20 text-center border-t border-gray-100">
+        <p class="text-[10px] uppercase tracking-[0.5em] text-gray-300 mb-6 font-bold">SwiftGo Global Logistics Network</p>
+        <div class="flex justify-center space-x-8 text-brand text-lg mb-10">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+        <p class="text-[10px] text-gray-400 uppercase tracking-widest">&copy; 2026 SwiftGo Courier. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
-
